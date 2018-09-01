@@ -61,7 +61,7 @@ export default class extends Component {
   };
 
   render() {
-    const { onChange, ...props } = this.props;
+    const { token, onChange, ...props } = this.props;
     return (
       <ReactUpload onChange={this._onChange} {...props} />
     );
