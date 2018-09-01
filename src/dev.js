@@ -8,7 +8,7 @@ import ReactUploadWeibo from './main';
 
 class App extends React.Component{
   state = {
-    token: '_2A252jRgmDeRhGeBO7lAX8CzOyjSIHXVV-w7urDV8PUJbmtBeLWf5kW9NReLbimaRejwVk8D69sJv_CfRCAe0CtOp'
+    token: 'XX'
   };
 
   constructor(props){
