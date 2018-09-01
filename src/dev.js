@@ -1,5 +1,6 @@
 import './dev.scss';
 import ReactUploadWeibo from './main';
+import tokenJson from './token.json';
 
 /*===example start===*/
 
@@ -8,7 +9,7 @@ import ReactUploadWeibo from './main';
 
 class App extends React.Component{
   state = {
-    token: 'XX'
+    token: tokenJson.token
   };
 
   constructor(props){
