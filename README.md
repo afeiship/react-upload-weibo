@@ -42,7 +42,7 @@ $react-upload-weibo-options:(
 
 class App extends React.Component{
   state = {
-    token: 'XX'
+    token: tokenJson.token
   };
 
   constructor(props){
