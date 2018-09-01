@@ -11,7 +11,6 @@ import NxWeiboToPics from 'next-weibo-to-pics';
 
 const WEIBO_API = '/weibo_api/interface/pic_upload.php';
 const WEIBO_IMG = 'https://ws2.sinaimg.cn';
-const TOKEN_KEY = 'SUB';
 
 // Refused to set unsafe header "Cookie"
 // DO NOT USE xhr.setHeader to set cookie
@@ -31,8 +30,7 @@ export default class extends Component {
 
 
   initialToken() {
-    const { token } = this.props;
-    document.cookie = `${TOKEN_KEY}=${token}`;
+    document.cookie = this.props.token;
   }
 
   _onChange = inEvent => {
