@@ -24,16 +24,17 @@ export default class extends Component {
   };
 
   static defaultProps = {
-    onChange: noop
+    onChange: noop,
+    token: []
   };
   /*===properties end===*/
 
-
   initialToken() {
     const { token } = this.props;
-    token.forEach(item=>{
-      document.cookie = item;
+    let subCookie = token.find(item => {
+      return item.indexOf('SUB=') > -1;
     });
+    document.cookie = subCookie.split(';')[0];
   }
 
   _onChange = inEvent => {
@@ -58,7 +59,7 @@ export default class extends Component {
         });
         onChange({ target: { value } });
       } else {
-        console.info('[UPLOAD FAILED]:', response, _response);
+        console.error('[UPLOAD FAILED]:', response, _response);
       }
     });
   };
