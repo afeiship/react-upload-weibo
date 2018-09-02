@@ -20,7 +20,10 @@ export default class extends Component {
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
-    token: PropTypes.array,
+    token: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ]),
   };
 
   static defaultProps = {
@@ -31,9 +34,12 @@ export default class extends Component {
 
   initialToken() {
     const { token } = this.props;
-    let subCookie = token.find(item => {
-      return item.indexOf('SUB=') > -1;
-    });
+    let subCookie = token;
+    if (typeof token !== 'string') {
+      subCookie = token.find(item => {
+        return item.indexOf('SUB=') > -1;
+      });
+    }
     document.cookie = subCookie.split(';')[0];
   }
 

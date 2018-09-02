@@ -7,11 +7,15 @@
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
-    token: PropTypes.array,
+    token: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ]),
   };
 
   static defaultProps = {
-    onChange: noop
+    onChange: noop,
+    token: []
   };
   
 ```
