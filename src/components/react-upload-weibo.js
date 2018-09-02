@@ -20,7 +20,7 @@ export default class extends Component {
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
-    token: PropTypes.string,
+    token: PropTypes.array,
   };
 
   static defaultProps = {
@@ -30,7 +30,10 @@ export default class extends Component {
 
 
   initialToken() {
-    document.cookie = this.props.token;
+    const { token } = this.props;
+    token.forEach(item=>{
+      document.cookie = item;
+    });
   }
 
   _onChange = inEvent => {

@@ -7,7 +7,7 @@
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
-    token: PropTypes.string,
+    token: PropTypes.array,
   };
 
   static defaultProps = {
