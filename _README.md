@@ -28,6 +28,3 @@ $react-upload-weibo-options:(
 ```jsx
 BACKUP_USAGE
 ```
-
-## snapshot:
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fuzkehe8a0j30o20cmq4k.jpg)
