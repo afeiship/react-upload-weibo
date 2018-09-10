@@ -88,6 +88,7 @@
     "mixin-decorator": "github:afeiship/mixin-decorator",
     "next-dom-event": "github:afeiship/next-dom-event",
     "next-file-upload": "github:afeiship/next-file-upload",
+    "next-weibo-oss": "github:afeiship/next-weibo-oss",
     "next-weibo-to-pics": "github:afeiship/next-weibo-to-pics",
     "noop": "github:afeiship/noop",
     "object-assign": "^4.1.1",
