@@ -26,7 +26,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="hello-react-upload-weibo">
-        <ReactUploadWeibo token={this.state.token} onChange={this._onChange} ref='rc' />
+        <ReactUploadWeibo itemLimit={3} token={this.state.token} onChange={this._onChange} ref='rc' />
       </div>
     );
   }

@@ -15,6 +15,7 @@ export default class extends Component {
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
+    itemLimit: PropTypes.number,
     token: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
@@ -23,6 +24,7 @@ export default class extends Component {
 
   static defaultProps = {
     onChange: noop,
+    itemLimit: 10,
     token: []
   };
   /*===properties end===*/
@@ -35,7 +37,6 @@ export default class extends Component {
   _onChange = inEvent => {
     const { onChange } = this.props;
     const { value } = inEvent.target;
-
     this._oss.uploads(value).then(response => {
       onChange({ target: { value: response } });
     }, error => {
@@ -44,9 +45,9 @@ export default class extends Component {
   };
 
   render() {
-    const { token, onChange, ...props } = this.props;
+    const { token, itemLimit, onChange, ...props } = this.props;
     return (
-      <ReactUpload onChange={this._onChange} {...props} />
+      <ReactUpload itemLimit={itemLimit} onChange={this._onChange} {...props} />
     );
   }
 }

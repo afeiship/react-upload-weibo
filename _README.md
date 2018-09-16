@@ -28,3 +28,10 @@ $react-upload-weibo-options:(
 ```jsx
 BACKUP_USAGE
 ```
+
+## token.json
+```json
+{
+  "token": "SUB=YOUR_TOKEN"
+}
+```

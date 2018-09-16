@@ -7,6 +7,7 @@
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
+    itemLimit: PropTypes.number,
     token: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
@@ -15,6 +16,7 @@
 
   static defaultProps = {
     onChange: noop,
+    itemLimit: 10,
     token: []
   };
   
@@ -63,10 +65,17 @@ class App extends React.Component{
   render(){
     return (
       <div className="hello-react-upload-weibo">
-        <ReactUploadWeibo token={this.state.token} onChange={this._onChange} ref='rc' />
+        <ReactUploadWeibo itemLimit={3} token={this.state.token} onChange={this._onChange} ref='rc' />
       </div>
     );
   }
 }
 
+```
+
+## token.json
+```json
+{
+  "token": "SUB=YOUR_TOKEN"
+}
 ```
