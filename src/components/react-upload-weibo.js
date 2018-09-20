@@ -14,6 +14,7 @@ export default class extends Component {
   /*===properties start===*/
   static propTypes = {
     className: PropTypes.string,
+    onBeforeChange: PropTypes.func,
     onChange: PropTypes.func,
     itemLimit: PropTypes.number,
     token: PropTypes.oneOfType([
@@ -23,6 +24,7 @@ export default class extends Component {
   };
 
   static defaultProps = {
+    onBeforeChange: noop,
     onChange: noop,
     itemLimit: 10,
     token: []
@@ -35,8 +37,9 @@ export default class extends Component {
   }
 
   _onChange = inEvent => {
-    const { onChange } = this.props;
+    const { onBeforeChange, onChange } = this.props;
     const { value } = inEvent.target;
+    onBeforeChange(inEvent);
     this._oss.uploads(value).then(response => {
       onChange({ target: { value: response } });
     }, error => {

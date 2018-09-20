@@ -6,6 +6,7 @@
 
   static propTypes = {
     className: PropTypes.string,
+    onBeforeChange: PropTypes.func,
     onChange: PropTypes.func,
     itemLimit: PropTypes.number,
     token: PropTypes.oneOfType([
@@ -15,6 +16,7 @@
   };
 
   static defaultProps = {
+    onBeforeChange: noop,
     onChange: noop,
     itemLimit: 10,
     token: []
