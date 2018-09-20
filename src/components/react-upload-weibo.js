@@ -48,7 +48,7 @@ export default class extends Component {
   };
 
   render() {
-    const { token, itemLimit, onChange, ...props } = this.props;
+    const { token, itemLimit, onBeforeChange, onChange, ...props } = this.props;
     return (
       <ReactUpload itemLimit={itemLimit} onChange={this._onChange} {...props} />
     );
