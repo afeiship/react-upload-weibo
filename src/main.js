@@ -1,2 +1,2 @@
-import ReactUploadWeibo from 'components/react-upload-weibo';
+import ReactUploadWeibo from './components';
 export default ReactUploadWeibo;

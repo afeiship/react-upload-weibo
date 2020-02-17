@@ -1,83 +1,67 @@
 # react-upload-weibo
-> Weibo upload pictures for react
+> Weibo upload pictures for react.
 
-## properties:
-```javascript
-
-  static propTypes = {
-    className: PropTypes.string,
-    onBeforeChange: PropTypes.func,
-    onChange: PropTypes.func,
-    itemLimit: PropTypes.number,
-    token: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array
-    ]),
-  };
-
-  static defaultProps = {
-    onBeforeChange: noop,
-    onChange: noop,
-    itemLimit: 10,
-    token: []
-  };
-  
+## installation
+```shell
+npm install -S @feizheng/react-upload-weibo
 ```
 
-## install && import:
-```bash
-npm install --save afeiship/react-upload-weibo --registry=https://registry.npm.taobao.org
+## update
+```shell
+npm update @feizheng/react-upload-weibo
 ```
 
-```js
-import ReactUploadWeibo from 'react-upload-weibo';
-```
-
-```scss
-// customize your styles:
-$react-upload-weibo-options:(
-);
-
-@import 'node_modules/react-upload-weibo/dist/style.scss';
-```
+## properties
+| Name      | Type   | Default | Description                           |
+| --------- | ------ | ------- | ------------------------------------- |
+| className | string | -       | The extended className for component. |
+| onChange  | func   | noop    | The change handler.                   |
+| max       | number | 10      | The max upload limit.                 |
+| token     | string | -       | The weibo oss token.                  |
 
 
-## usage:
-```jsx
+## usage
+1. import css
+  ```scss
+  @import "~@feizheng/react-upload-weibo/dist/style.scss";
 
-// install: npm install afeiship/react-upload-weibo --save
-// import : import ReactUploadWeibo from 'react-upload-weibo'
+  // customize your styles:
+  $react-upload-weibo-options: ()
+  ```
+2. import js
+  ```js
+  import ReactUploadWeibo from '@feizheng/react-upload-weibo';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import tokenJson from '../.token.json';
 
-class App extends React.Component{
-  state = {
-    token: tokenJson.token
-  };
+  import './assets/style.scss';
 
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
+  class App extends React.Component {
+    state = {
+      token: tokenJson.token
+    };
+
+    handleChange = (e) => {
+      console.log(e.target.value);
+    };
+
+    render() {
+      return (
+        <div className="hello-react-upload-weibo">
+          <ReactUploadWeibo
+            max={3}
+            token={this.state.token}
+            onChange={this.handleChange}
+          />
+        </div>
+      );
+    }
   }
 
-  _onChange = e=>{
-    console.log(e.target.value)
-  };
+  ReactDOM.render(<App />, document.getElementById('app'));
 
-  render(){
-    return (
-      <div className="hello-react-upload-weibo">
-        <ReactUploadWeibo itemLimit={3} token={this.state.token} onChange={this._onChange} ref='rc' />
-      </div>
-    );
-  }
-}
+  ```
 
-```
-
-## token.json
-```json
-{
-  "token": "SUB=YOUR_TOKEN"
-}
-```
+## documentation
+- https://afeiship.github.io/react-upload-weibo/
