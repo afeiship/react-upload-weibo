@@ -55,7 +55,7 @@ export default class ReactUploadWeibo extends Component {
   };
 
   render() {
-    const { className, max, onChange, ...props } = this.props;
+    const { className, max, onChange, token, ...props } = this.props;
     return (
       <ReactUpload
         max={max}
