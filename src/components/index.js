@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
-import NxWeiboOss from '@feizheng/next-weibo-oss';
-import ReactUpload from '@feizheng/react-upload';
+import noop from '@jswork/noop';
+import NxWeiboOss from '@jswork/next-weibo-oss';
+import ReactUpload from '@jswork/react-upload';
 
 const CLASS_NAME = 'react-upload-weibo';
 
@@ -24,7 +22,7 @@ export default class ReactUploadWeibo extends Component {
     /**
      * The max upload limit.
      */
-    max: PropTypes.number,
+    limit: PropTypes.number,
     /**
      * The weibo oss token.
      */
@@ -33,7 +31,7 @@ export default class ReactUploadWeibo extends Component {
 
   static defaultProps = {
     onChange: noop,
-    max: 10
+    limit: 10
   };
 
   constructor(inProps) {
@@ -44,7 +42,7 @@ export default class ReactUploadWeibo extends Component {
   handleChange = (inEvent) => {
     const { onChange } = this.props;
     const { value } = inEvent.target;
-    this.weiboOss.uploads(value).then(
+    this.weiboOss.uploads(value.files).then(
       (response) => {
         onChange({ target: { value: response } });
       },
@@ -55,10 +53,10 @@ export default class ReactUploadWeibo extends Component {
   };
 
   render() {
-    const { className, max, onChange, token, ...props } = this.props;
+    const { className, limit, onChange, token, ...props } = this.props;
     return (
       <ReactUpload
-        max={max}
+        limit={limit}
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
         onChange={this.handleChange}
